@@ -1,0 +1,26 @@
+{
+  "name": "c.a.s.e.-elyria-systems-boundary-layer",
+  "version": "22.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local artifact proof surface for C.A.S.E. boundary enforcement, commit-time admissibility, attestation, receipt, replay, and lineage verification.",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "verify:hashes": "node scripts/verify-release-hashes.mjs",
+    "proof": "node scripts/run-proof-suite.mjs",
+    "verify": "npm run verify:hashes && npm run proof"
+  },
+  "keywords": [
+    "ai-governance",
+    "runtime-governance",
+    "admissibility",
+    "commit-gate",
+    "replay",
+    "receipts",
+    "lineage",
+    "deterministic-systems",
+    "ai-safety",
+    "compliance"
+  ],
+  "license": "UNLICENSED"
+}
