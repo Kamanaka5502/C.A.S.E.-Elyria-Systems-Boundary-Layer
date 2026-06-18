@@ -1,12 +1,40 @@
-# C.A.S.E. Elyria Systems Boundary Layer
+<p align="center">
+  <img src="docs/assets/case-hero.svg" alt="C.A.S.E. Elyria Systems Boundary Layer" width="100%" />
+</p>
+
+<h1 align="center">✨ C.A.S.E. Elyria Systems Boundary Layer</h1>
+
+<p align="center"><strong>Commit-time admissibility, attestation, receipt, replay, and lineage verification.</strong></p>
+
+<p align="center"><em>Human-attuned governance meets consequence-boundary enforcement.</em></p>
+
+<p align="center">
+  <img alt="Boundary" src="https://img.shields.io/badge/Boundary-runtime__commit__gate-0F1D33?style=for-the-badge&labelColor=C9A15B" />
+  <img alt="Contract" src="https://img.shields.io/badge/Contract-9.0.0-0F1D33?style=for-the-badge&labelColor=7E9487" />
+  <img alt="Runtime" src="https://img.shields.io/badge/Runtime-CASE__v22__rerun__clean__runtime-0F1D33?style=for-the-badge&labelColor=C9A15B" />
+</p>
+
+<p align="center">
+  <img alt="Proof Suite" src="https://img.shields.io/badge/Proof%20Suite-11%2F11%20PASS-0F1D33?style=for-the-badge&labelColor=7E9487" />
+  <img alt="Admissibility" src="https://img.shields.io/badge/Admissibility-Commit--time-0F1D33?style=for-the-badge&labelColor=C9A15B" />
+  <img alt="Integrity" src="https://img.shields.io/badge/Integrity-Receipt%20%E2%80%A2%20Replay%20%E2%80%A2%20Lineage-0F1D33?style=for-the-badge&labelColor=7E9487" />
+</p>
+
+> **🧭 Governing principle:** Not everything that can move is allowed to bind.
+
+---
+
+## ✨ What this is
 
 **C.A.S.E. v22 Rerun Clean Release** is a local artifact proof surface for governed execution admission.
 
-This repository packages the C.A.S.E. layer as a reviewable boundary system:
+It packages the C.A.S.E. layer as a reviewable boundary system:
 
-`proposal -> boundary service envelope check -> authoritative contract load check -> runtime_commit_gate -> commit attestation -> runtime receipt -> replay -> lineage verification`
+**📄 Proposal → 🛡️ Boundary Envelope → 📋 Contract Check → ✨ Runtime Commit Gate → 🏅 Attestation → 🧾 Receipt → 🔁 Replay → 🌿 Lineage Verification**
 
-## What this repo proves
+---
+
+## 🛡️ What this repository proves
 
 This package proves the local artifact line represented here:
 
@@ -18,7 +46,9 @@ This package proves the local artifact line represented here:
 - replay compares governing conditions explicitly
 - lineage verification breaks loudly on tamper
 
-## What this repo does not prove
+---
+
+## 🚫 What this repository does not prove
 
 This repository does **not** claim:
 
@@ -30,7 +60,9 @@ This repository does **not** claim:
 
 The claim is narrower and stronger: **local artifact truth for this C.A.S.E. v22 release package.**
 
-## Repository layout
+---
+
+## 📦 Repository layout
 
 ```text
 release/case_v22_rerun_clean_release/
@@ -50,7 +82,9 @@ scripts/
 
 The release package is preserved under `release/case_v22_rerun_clean_release/` so the included release manifest and release-hash file remain directly verifiable.
 
-## Run locally
+---
+
+## 🚀 Run locally
 
 ```bash
 npm run start
@@ -62,7 +96,9 @@ Then open:
 http://localhost:8080/ui/
 ```
 
-## Verify the release
+---
+
+## ✅ Verify the release
 
 ```bash
 npm run verify
@@ -75,16 +111,20 @@ npm run verify:hashes
 npm run proof
 ```
 
-`verify:hashes` validates `RELEASE_HASHES.json` against the preserved release files.  
-`proof` executes the C.A.S.E. proof suite from the runtime modules.
+- `verify:hashes` validates `RELEASE_HASHES.json` against the preserved release files.
+- `proof` executes the C.A.S.E. proof suite from the runtime modules.
 
-## Recommended GitHub posture
+---
+
+## 🔎 Recommended GitHub posture
 
 Start this repository as **private**.
 
 Public exposure should be limited to the proof surface only. Do not publish deeper proprietary runtime lineage, customer materials, private engagement material, or implementation claims that exceed the local artifact boundary.
 
-## Suggested repository metadata
+---
+
+## 🏛️ Suggested repository metadata
 
 **Name:** `C.A.S.E.-Elyria-Systems-Boundary-Layer`
 
