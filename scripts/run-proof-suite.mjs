@@ -101,7 +101,7 @@ try {
     failures.push({ check: 'proof_case', ...failure });
   }
 
-  const caseNames = new Set(report.cases.map(c => c.name));
+  const caseNames = new Set(report.cases.map(c => c.case ?? c.name));
   for (const requiredCase of ['refuse', 'replay', 'tamper', 'forged_receipt', 'precheck']) {
     if (!caseNames.has(requiredCase)) {
       failures.push({ check: 'required_proof_case', case: requiredCase });
