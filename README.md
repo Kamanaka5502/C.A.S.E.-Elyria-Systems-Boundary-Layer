@@ -68,21 +68,15 @@ This package proves the local artifact line represented here:
 
 ---
 
-## What this repository does not prove
+## Scope Boundary
 
-This repository does **not** claim:
+C.A.S.E. v22 is a bounded proof surface for buyer review.
 
-- production deployment hardening
-- third-party certification
-- universal governance proof
-- deployed no-bypass enforcement
-- C.A.S.E. certification
-- psychological safety certification
-- legal or compliance guarantee
-- proof of any original artifact outside this release package
-- full Elyria protected kernel disclosure
+It demonstrates how proposed movement is checked at commit, how standing is re-bound before effect, and how attestation, receipt, replay, and lineage make the result reviewable.
 
-The claim is narrower and stronger: **local artifact truth for this C.A.S.E. v22 release package.**
+The claim is narrow by design:
+
+**local artifact truth for this C.A.S.E. v22 release package.**
 
 ---
 
