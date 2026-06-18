@@ -23,6 +23,7 @@ for (const [relativePath, expected] of Object.entries(manifest.hashes || {})) {
 
 if (failures.length) {
   console.error(JSON.stringify({ status: 'FAIL', failures }, null, 2));
+  console.error('RESULT: C.A.S.E. BOUNDARY FAIL');
   process.exit(1);
 }
 
