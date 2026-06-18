@@ -126,7 +126,7 @@ def main() -> int:
 
     try:
         report = load_json("artifacts/proof_suite_report_current.json")
-        cases = {case.get("name"): case for case in report.get("cases", [])}
+        cases = {case.get("case", case.get("name")): case for case in report.get("cases", [])}
         required_cases = ["refuse", "replay", "tamper", "forged_receipt", "precheck"]
         missing_cases = [case for case in required_cases if case not in cases]
         failed_cases = [name for name, case in cases.items() if not case.get("pass")]
