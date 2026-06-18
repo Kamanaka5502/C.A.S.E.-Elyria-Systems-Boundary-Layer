@@ -2,6 +2,14 @@
 
 ![Verify C.A.S.E. Boundary](https://github.com/Kamanaka5502/C.A.S.E.-Elyria-Systems-Boundary-Layer/actions/workflows/verify.yml/badge.svg)
 
+## Current Classification
+
+**A+ local artifact proof surface.**
+
+This classification is bounded to the claim this repository actually makes.
+
+It is **not** production-certified, third-party certified, universal governance proof, deployed network no-bypass proof, customer-specific corridor certification, or protected kernel disclosure.
+
 ## Reviewer Summary
 
 C.A.S.E. Elyria Systems Boundary Layer is a public-safe local artifact proof surface for proposed effect-bearing movement.
@@ -98,6 +106,7 @@ pytest
 
 Start here:
 
+- [`A_PLUS_CLASSIFICATION.md`](A_PLUS_CLASSIFICATION.md)
 - [`A_PLUS_REVIEW_EVIDENCE.md`](A_PLUS_REVIEW_EVIDENCE.md)
 - [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md)
 - [`BUYER_REVIEW_GUIDE.md`](BUYER_REVIEW_GUIDE.md)
