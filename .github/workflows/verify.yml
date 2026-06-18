@@ -32,3 +32,6 @@ jobs:
 
       - name: Run Python tests
         run: pytest
+
+      - name: Run tamper-fail test
+        run: npm run tamper:test
