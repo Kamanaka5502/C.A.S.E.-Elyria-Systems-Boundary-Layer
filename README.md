@@ -1,8 +1,34 @@
 # ✨ C.A.S.E. Elyria Systems Boundary Layer
 
-**C.A.S.E.–Elyria Systems Boundary Layer** is a buyer-reviewable local proof package for commit-time admissibility in governed AI execution. It demonstrates how an effect-bearing proposal enters a boundary envelope, loads an authoritative contract, resolves admissibility at runtime commit, emits attestation and receipt, supports replay, and breaks lineage verification on tamper.
+![Verify C.A.S.E. Boundary](https://github.com/Kamanaka5502/C.A.S.E.-Elyria-Systems-Boundary-Layer/actions/workflows/verify.yml/badge.svg)
 
-This repo is **not production-certified**, **not third-party certified**, and **not a deployed no-bypass system**. It is a bounded proof surface for buyer review and pilot scoping.
+## Reviewer Summary
+
+C.A.S.E. Elyria Systems Boundary Layer is a public-safe local artifact proof surface for proposed effect-bearing movement.
+
+The repo does not merely show a runtime gate.
+
+It shows a preserved release package where a proposed movement enters a boundary envelope, standing is re-bound, admissibility is checked, commit authority is attested, receipts are emitted, replay compares governing conditions, and lineage verification breaks on tamper.
+
+Core invariant:
+
+**Proposed movement enters.  
+Boundary resolves.  
+No protected consequence binds without the boundary result.**
+
+Reviewer command:
+
+```bash
+npm run verify
+```
+
+Expected result:
+
+```text
+RESULT: C.A.S.E. BOUNDARY PASS
+```
+
+This repo proves local artifact truth for this release package. It does not claim production deployment, third-party certification, or universal governance proof.
 
 <p align="center">
   <img src="docs/assets/case-hero.svg" alt="C.A.S.E. Elyria Systems Boundary Layer" width="100%" />
@@ -32,12 +58,19 @@ Start here:
 
 - [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md)
 - [`BUYER_REVIEW_GUIDE.md`](BUYER_REVIEW_GUIDE.md)
-- [`CLAIMS_BOUNDARY.md`](CLAIMS_BOUNDARY.md)
+- [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md)
 - [`PILOT_LANE.md`](PILOT_LANE.md)
 - [`COMMERCIAL_BOUNDARY.md`](COMMERCIAL_BOUNDARY.md)
 - [`SECURITY_POSTURE.md`](SECURITY_POSTURE.md)
 - [`PROOF_SURFACE.md`](PROOF_SURFACE.md)
 - [`PROOF_RESULTS.md`](PROOF_RESULTS.md)
+- [`docs/NO_BIND_PROOF_TRANSCRIPT.md`](docs/NO_BIND_PROOF_TRANSCRIPT.md)
+- [`docs/ROUTE_CLOSURE_PROOF.md`](docs/ROUTE_CLOSURE_PROOF.md)
+- [`docs/CHANGED_CONDITION_REPLAY_TRANSCRIPT.md`](docs/CHANGED_CONDITION_REPLAY_TRANSCRIPT.md)
+- [`docs/TAMPER_TEST.md`](docs/TAMPER_TEST.md)
+- [`docs/BENCHMARK_SCORECARD.md`](docs/BENCHMARK_SCORECARD.md)
+- [`docs/BUYER_REVIEWER_READOUT.md`](docs/BUYER_REVIEWER_READOUT.md)
+- [`docs/FRESH_CLONE_REVIEW_TEST.md`](docs/FRESH_CLONE_REVIEW_TEST.md)
 - [`docs/BUYER_DEMO_SCRIPT.md`](docs/BUYER_DEMO_SCRIPT.md)
 - [`docs/CASE_ELYRIA_MAPPING.md`](docs/CASE_ELYRIA_MAPPING.md)
 - [`docs/BUYER_FAQ.md`](docs/BUYER_FAQ.md)
@@ -46,7 +79,7 @@ Start here:
 
 ## What this is
 
-**C.A.S.E. v22 Rerun Clean Release** is a local artifact proof surface for governed execution admission.
+**C.A.S.E. v22 Rerun Clean Release** is a pre-formation consequence-boundary proof surface for proposed effect-bearing movement.
 
 It packages the C.A.S.E. layer as a reviewable boundary system:
 
@@ -58,13 +91,15 @@ It packages the C.A.S.E. layer as a reviewable boundary system:
 
 This package proves the local artifact line represented here:
 
-- effect-bearing proposals must enter through a boundary service envelope
+- proposed effect-bearing movement must enter through a boundary service envelope
 - admissibility is resolved at `runtime_commit_gate`
-- standing is re-bound at commit and is not inherited
+- standing is re-bound before protected consequence may bind and is not inherited
 - commit attestation binds governing basis, authority scope, evidence lineage, current state, runtime identity, and contract identity
-- runtime receipts emit from execution
-- replay compares governing conditions explicitly
+- failed admission produces refusal / no-bind behavior
+- receipts preserve the boundary result
+- same-condition replay and changed-condition replay compare governing conditions explicitly
 - lineage verification breaks loudly on tamper
+- release hashes verify preserved artifacts
 
 ---
 
@@ -72,7 +107,7 @@ This package proves the local artifact line represented here:
 
 C.A.S.E. v22 is a bounded proof surface for buyer review.
 
-It demonstrates how proposed movement is checked at commit, how standing is re-bound before effect, and how attestation, receipt, replay, and lineage make the result reviewable.
+It demonstrates how proposed movement is checked before protected consequence binds, how standing is re-bound before effect, and how attestation, receipt, replay, and lineage make the result reviewable.
 
 The claim is narrow by design:
 
@@ -130,7 +165,19 @@ npm run proof
 ```
 
 - `verify:hashes` validates `RELEASE_HASHES.json` against the preserved release files.
-- `proof` executes the C.A.S.E. proof suite from the runtime modules.
+- `proof` executes the C.A.S.E. proof suite, validates boundary documentation, and emits the final boundary result.
+
+Expected final passing line:
+
+```text
+RESULT: C.A.S.E. BOUNDARY PASS
+```
+
+Expected final failing line after tamper or verifier failure:
+
+```text
+RESULT: C.A.S.E. BOUNDARY FAIL
+```
 
 ---
 
@@ -145,7 +192,7 @@ This repository is a review surface, not a commercial deployment license. Commer
 **Name:** `C.A.S.E.-Elyria-Systems-Boundary-Layer`
 
 **Description:**  
-Buyer-reviewable local proof package for C.A.S.E.–Elyria commit-time admissibility, attestation, receipt, replay, and lineage verification.
+Buyer-reviewable local proof package for C.A.S.E.–Elyria pre-formation consequence-boundary review, commit-time admissibility, attestation, receipt, replay, and lineage verification.
 
 **Topics:**  
 `ai-governance`, `runtime-governance`, `admissibility`, `commit-gate`, `replay`, `receipts`, `lineage`, `deterministic-systems`, `ai-safety`, `compliance`
