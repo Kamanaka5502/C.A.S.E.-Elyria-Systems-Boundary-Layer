@@ -1,0 +1,24 @@
+
+> c.a.s.e.-elyria-systems-boundary-layer@22.0.0 verify
+> npm run verify:hashes && npm run proof
+
+
+> c.a.s.e.-elyria-systems-boundary-layer@22.0.0 verify:hashes
+> node scripts/verify-release-hashes.mjs
+
+{
+  "status": "PASS",
+  "checked_files": 61,
+  "artifact_line": "C.A.S.E. v22 Rerun Clean Release"
+}
+
+> c.a.s.e.-elyria-systems-boundary-layer@22.0.0 proof
+> node scripts/run-proof-suite.mjs
+
+{
+  "status": "PASS",
+  "summary": "11/11 proof cases passed",
+  "runtime_identity": "CASE_v22_rerun_clean_runtime",
+  "contract_version": "9.0.0",
+  "report_path": "artifacts/proof_suite_report_current.json"
+}

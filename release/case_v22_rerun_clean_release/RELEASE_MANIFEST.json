@@ -1,0 +1,23 @@
+{
+  "release_name": "C.A.S.E. v22 Rerun Clean Release",
+  "release_id": "case_v22_rerun_clean_release_2026_04_09",
+  "build_identity": "case_v22_build_2026_04_09",
+  "runtime_identity": "CASE_v22_rerun_clean_runtime",
+  "contract_identity_file": "contracts/contract_identity.json",
+  "authoritative_contract": "contracts/case_contract_authoritative_v5.json",
+  "proof_report": "proof/proof_suite_report_v22.json",
+  "ui_entry": "ui/index.html",
+  "reviewer_flow": [
+    "run",
+    "commit",
+    "attestation",
+    "receipt",
+    "replay",
+    "lineage"
+  ],
+  "claim_scope": {
+    "local_artifact_truth": true,
+    "production_claim": false
+  },
+  "release_line": "v22_rerun_clean"
+}

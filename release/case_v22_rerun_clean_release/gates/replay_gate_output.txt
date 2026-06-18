@@ -1,0 +1,6 @@
+PASS
+
+Replay standard:
+same contract + same relevant inputs + same state epoch -> same decision class
+
+The replay report checks contract identity, proposal hash, state epoch, decision class, commit boundary, and runtime identity.

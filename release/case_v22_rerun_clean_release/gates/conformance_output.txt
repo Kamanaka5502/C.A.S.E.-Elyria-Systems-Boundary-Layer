@@ -1,0 +1,6 @@
+PASS
+
+The runtime boundary emits bounded outcomes only: EXECUTE, REFUSE, ESCALATE, HALT.
+Admissibility is re-evaluated at runtime_commit_gate under current state.
+Standing is explicit and resolved at commit.
+Receipt is emitted from runtime execution result and chained into lineage.

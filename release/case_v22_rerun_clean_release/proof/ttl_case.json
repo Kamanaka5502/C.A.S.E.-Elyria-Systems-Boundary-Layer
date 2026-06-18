@@ -1,0 +1,17 @@
+{
+  "proposal": {
+    "decision_id": "case_stale_ttl",
+    "authority": true,
+    "consent": "granted",
+    "contextComplete": true,
+    "ttlSeconds": 0,
+    "risk": 0.18,
+    "state_epoch": "epoch_1",
+    "contract_sha256": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+  },
+  "state": {
+    "state_epoch": "epoch_1",
+    "contract_sha256": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+  },
+  "expected_outcome": "REFUSE"
+}

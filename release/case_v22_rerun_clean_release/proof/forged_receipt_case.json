@@ -1,0 +1,19 @@
+{
+  "case": "forged_receipt_detectability",
+  "proposal": {
+    "decision_id": "case_forgery_seed",
+    "authority": true,
+    "consent": "granted",
+    "contextComplete": true,
+    "ttlSeconds": 300,
+    "risk": 0.2,
+    "state_epoch": "epoch_1",
+    "contract_sha256": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+  },
+  "state": {
+    "state_epoch": "epoch_1",
+    "contract_sha256": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+  },
+  "expected_outcome": "EXECUTE",
+  "special_assertion": "forged receipt must break receipt hash and/or lineage continuity"
+}

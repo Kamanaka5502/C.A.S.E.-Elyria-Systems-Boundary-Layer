@@ -1,0 +1,559 @@
+{
+  "package": "C.A.S.E. v22 Rerun Clean Release",
+  "runtime_identity": "CASE_v22_rerun_clean_runtime",
+  "contract_version": "9.0.0",
+  "replay_standard": "same contract + same relevant inputs + same state epoch + same runtime identity -> same decision class",
+  "summary": "11/11 proof cases passed",
+  "cases": [
+    {
+      "case": "execute",
+      "expected": "EXECUTE",
+      "actual": "EXECUTE",
+      "reason": "admissible",
+      "selected_rule": "all_rules_passed",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "cceaffa3d610d5f6439f0c920a37b9874e199497988b2157edc38cdfff85f7cf",
+          "b": "cceaffa3d610d5f6439f0c920a37b9874e199497988b2157edc38cdfff85f7cf"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "EXECUTE",
+          "b": "EXECUTE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "refuse",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "reason": "consent_revoked",
+      "selected_rule": "consent_required",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "cac6f86982e91be30d0ad6c6506d7a3b4e7d0d425e3f0b41b1ad63ad0f7fa7ec",
+          "b": "cac6f86982e91be30d0ad6c6506d7a3b4e7d0d425e3f0b41b1ad63ad0f7fa7ec"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "REFUSE",
+          "b": "REFUSE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "escalate",
+      "expected": "ESCALATE",
+      "actual": "ESCALATE",
+      "reason": "risk_requires_human_escalation",
+      "selected_rule": "escalate_threshold",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "14b9d2ba56fde95087b314b8ea1bf17023e0410a60799914a44a7ca308a5f72e",
+          "b": "14b9d2ba56fde95087b314b8ea1bf17023e0410a60799914a44a7ca308a5f72e"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "ESCALATE",
+          "b": "ESCALATE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "replay",
+      "expected": "EXECUTE",
+      "actual": "EXECUTE",
+      "reason": "admissible",
+      "selected_rule": "all_rules_passed",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "82e5983a2d2a6bb8b9d0a81d386bee096e34e4e7e4588d4e658c3ff486825b0c",
+          "b": "82e5983a2d2a6bb8b9d0a81d386bee096e34e4e7e4588d4e658c3ff486825b0c"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "EXECUTE",
+          "b": "EXECUTE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "tamper",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "reason": "contract_mismatch",
+      "selected_rule": "contract_identity_required",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "65a35b667d49b19f66fa03e5f957700b6f058f8c9e20beabfc50dc67ba8fb281",
+          "b": "65a35b667d49b19f66fa03e5f957700b6f058f8c9e20beabfc50dc67ba8fb281"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "REFUSE",
+          "b": "REFUSE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "constitutional_shift",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "reason": "state_shift_detected",
+      "selected_rule": "state_epoch_required",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "76d822a75b77031f3eae4372c43dd45ed3ef64a089fa1645c9362d7d216ec824",
+          "b": "76d822a75b77031f3eae4372c43dd45ed3ef64a089fa1645c9362d7d216ec824"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_new",
+          "b": "epoch_new"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "REFUSE",
+          "b": "REFUSE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "ttl",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "reason": "ttl_invalid",
+      "selected_rule": "ttl_positive_required",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "2245b2e6c451130911173aa2ade129327af97d8fffbaf6b2a4f043ea94c2012e",
+          "b": "2245b2e6c451130911173aa2ade129327af97d8fffbaf6b2a4f043ea94c2012e"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "REFUSE",
+          "b": "REFUSE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "context",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "reason": "context_incomplete",
+      "selected_rule": "context_complete_required",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "c1253aa3d7bc5b1f4e0f972d6b808375af4d5f22fd96fb69162453b67523f18d",
+          "b": "c1253aa3d7bc5b1f4e0f972d6b808375af4d5f22fd96fb69162453b67523f18d"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "REFUSE",
+          "b": "REFUSE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "halt",
+      "expected": "HALT",
+      "actual": "HALT",
+      "reason": "risk_exceeds_max_bound",
+      "selected_rule": "risk_within_max_or_halt",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "11857d03fe95b430d7935d459b73f362579db29c04f1309b4aff12e32fc3b790",
+          "b": "11857d03fe95b430d7935d459b73f362579db29c04f1309b4aff12e32fc3b790"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "HALT",
+          "b": "HALT"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "forged_receipt",
+      "expected": "EXECUTE",
+      "actual": "EXECUTE",
+      "reason": "admissible",
+      "selected_rule": "all_rules_passed",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "87f2dea9fd611f9f79bb94433dcf90a866087314d0c7cd67d6cc62205f06004e",
+          "b": "87f2dea9fd611f9f79bb94433dcf90a866087314d0c7cd67d6cc62205f06004e"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_1",
+          "b": "epoch_1"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "EXECUTE",
+          "b": "EXECUTE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    },
+    {
+      "case": "precheck",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "reason": "state_shift_detected",
+      "selected_rule": "state_epoch_required",
+      "boundary": "runtime_commit_gate",
+      "replay_pass": true,
+      "replay_classification": "stable",
+      "replay_governing_conditions": {
+        "contract": {
+          "same": true,
+          "a": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+          "b": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+        },
+        "relevant_inputs": {
+          "same": true,
+          "a": "471b3de03dec4c664cb10f1b050ff02227009d87a5c01afb70b513d021eba1fb",
+          "b": "471b3de03dec4c664cb10f1b050ff02227009d87a5c01afb70b513d021eba1fb"
+        },
+        "state_epoch": {
+          "same": true,
+          "a": "epoch_real",
+          "b": "epoch_real"
+        },
+        "runtime_identity": {
+          "same": true,
+          "a": "CASE_v22_rerun_clean_runtime",
+          "b": "CASE_v22_rerun_clean_runtime"
+        },
+        "commit_boundary": {
+          "same": true,
+          "a": "runtime_commit_gate",
+          "b": "runtime_commit_gate"
+        },
+        "decision_class": {
+          "same": true,
+          "a": "REFUSE",
+          "b": "REFUSE"
+        }
+      },
+      "lineage_pass": true,
+      "lineage_failure_mode": null,
+      "forged_receipt_detectable": true,
+      "forged_lineage_loud_break": true,
+      "commit_attestation_present": true,
+      "attestation_signature_present": true,
+      "rule_coverage_complete": true,
+      "pass": true
+    }
+  ]
+}

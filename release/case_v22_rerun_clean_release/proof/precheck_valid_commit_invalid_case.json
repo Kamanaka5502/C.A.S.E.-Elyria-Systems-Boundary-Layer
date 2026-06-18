@@ -1,0 +1,17 @@
+{
+  "proposal": {
+    "decision_id": "case_precheck_valid_commit_invalid",
+    "authority": true,
+    "consent": "granted",
+    "contextComplete": true,
+    "ttlSeconds": 300,
+    "risk": 0.22,
+    "state_epoch": "epoch_candidate",
+    "contract_sha256": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+  },
+  "state": {
+    "state_epoch": "epoch_real",
+    "contract_sha256": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6"
+  },
+  "expected_outcome": "REFUSE"
+}

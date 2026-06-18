@@ -1,0 +1,14 @@
+{
+  "runtime_identity": "CASE_v22_rerun_clean_runtime",
+  "contract_sha256": "9af3ac750bf44da70d241da429a7d87b858a9786d6fa5145df96ce35539a85e6",
+  "contract_version": "9.0.0",
+  "build_identity": "case_v22_build_2026_04_09",
+  "artifact_line": "C.A.S.E. v22 Rerun Clean Release",
+  "boundary_api_version": "1.0",
+  "boundary_service_identity": "CASE_boundary_service_v22",
+  "allowed_channels": [
+    "case_ui_submit",
+    "proof_suite_submit"
+  ],
+  "release_line": "v22_rerun_clean"
+}

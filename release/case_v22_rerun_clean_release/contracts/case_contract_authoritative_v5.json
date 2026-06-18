@@ -1,0 +1,50 @@
+{
+  "contract_version": "9.0.0",
+  "contract_name": "CASE Locked Meeting Contract v21",
+  "rules": {
+    "max_risk": 0.5,
+    "escalate_threshold": 0.3,
+    "bounded_outcomes": [
+      "EXECUTE",
+      "REFUSE",
+      "ESCALATE",
+      "HALT"
+    ],
+    "standing_resolution": "resolved_at_commit",
+    "carry_forward_standing": false,
+    "state_epoch_required": true,
+    "receipt_lineage_required": true,
+    "contract_identity_required": true,
+    "runtime_identity_required": true,
+    "current_state_required": true,
+    "rule_ids": [
+      "contract_identity_required",
+      "state_contract_alignment_required",
+      "state_epoch_required",
+      "authority_required",
+      "consent_required",
+      "context_complete_required",
+      "ttl_positive_required",
+      "risk_within_max_or_halt",
+      "receipt_lineage_required",
+      "runtime_identity_required"
+    ],
+    "reason_map": {
+      "contract_identity_required": "contract_mismatch",
+      "state_contract_alignment_required": "contract_mismatch",
+      "state_epoch_required": "state_shift_detected",
+      "authority_required": "authority_invalid",
+      "consent_required": "consent_revoked",
+      "context_complete_required": "context_incomplete",
+      "ttl_positive_required": "ttl_invalid",
+      "risk_within_max_or_halt": "risk_exceeds_max_bound"
+    }
+  },
+  "proof_commitments": {
+    "replay_standard": "same contract + same relevant inputs + same state epoch + same runtime identity -> same decision class",
+    "lineage_standard": "each runtime-emitted receipt must verify against the previous authoritative receipt",
+    "tamper_standard": "forged outcomes must break receipt integrity or lineage continuity",
+    "commit_attestation_standard": "signed commit-time attestation must bind governing basis, authority scope, evidence lineage, and current state at runtime_commit_gate",
+    "boundary_service_standard": "all effect-bearing proposals must enter through boundary service envelope and fail closed on missing boundary attestation"
+  }
+}

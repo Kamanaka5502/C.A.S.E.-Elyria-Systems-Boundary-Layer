@@ -1,0 +1,11 @@
+PASS
+
+Reviewer smoke record
+- package opened on canonical v21 line
+- boundary path exercised through `runtime_commit_gate`
+- clean EXECUTE path emitted commit attestation and runtime receipt
+- replay under unchanged governing conditions passed
+- shifted governing condition caused replay failure with explicit classification
+- lineage verification remained intact until tamper, where continuity broke loudly
+
+This smoke record is reviewer-facing local artifact evidence. It is not a production deployment claim.

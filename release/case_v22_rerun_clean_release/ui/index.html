@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C.A.S.E. v22 — Boundary/Verification Separation Release</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="kicker">C.A.S.E. v22</div>
+      <h1>Deployment Boundary Environment</h1>
+      <p class="lead">Proposal in. Runtime decision at <code>runtime_commit_gate</code>. Commit-time re-binding attested. Receipt emits from execution. Replay and lineage verify continuity afterward.</p>
+    </div>
+    <div class="top-actions">
+      <button id="runSuite" class="primary">Run proof suite</button>
+      <button id="run" class="secondary">Run current proposal</button>
+      <button id="replay" class="secondary">Replay current</button>
+      <button id="exportReport" class="ghost">Export JSON</button>
+      <button id="exportHtml" class="ghost">Export HTML brief</button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar panel">
+      <div class="section-title">Viewer mode</div>
+      <div class="mode-switch">
+        <button class="mode active" data-mode="operator">Operator</button>
+        <button class="mode" data-mode="auditor">Auditor</button>
+        <button class="mode" data-mode="buyer">Buyer</button>
+      </div>
+
+      <div class="section-title mt">Scenario library</div>
+      <button class="scenario active" data-scenario="execute">EXECUTE — valid standing</button>
+      <button class="scenario" data-scenario="refuse">REFUSE — consent revoked</button>
+      <button class="scenario" data-scenario="escalate">ESCALATE — elevated risk</button>
+      <button class="scenario" data-scenario="halt">HALT — risk exceeds max</button>
+      <button class="scenario" data-scenario="shift">REFUSE — state shift</button>
+      <button class="scenario" data-scenario="tamper">REFUSE — contract tamper</button>
+      <button class="scenario" data-scenario="ttl">REFUSE — stale TTL</button>
+      <button class="scenario" data-scenario="context">REFUSE — incomplete context</button>
+      <button class="scenario" data-scenario="precheck">REFUSE — precheck valid / commit invalid</button>
+
+      <div class="section-title mt">Boundary facts</div>
+      <div class="facts">
+        <div><span>Boundary</span><strong>runtime_commit_gate</strong></div>
+        <div><span>Standing</span><strong>resolved at commit</strong></div>
+        <div><span>Contract</span><strong id="contractVersion">—</strong></div>
+        <div><span>Runtime</span><strong id="runtimeIdentity">—</strong></div>
+      </div>
+
+      <div class="section-title mt">Commercial read</div>
+      <div class="blurb" id="buyerSummary"></div>
+    </aside>
+
+    <main class="content">
+      <section class="hero-grid">
+        <div class="panel hero-card">
+          <div class="section-title">Current outcome</div>
+          <div id="decisionBadge" class="badge neutral">READY — no run yet</div>
+          <div class="trace" id="traceLine">proposal -> contract verify -> runtime_commit_gate -> receipt</div>
+          <div class="stats-grid">
+            <div class="score"><span>Contract gate</span><strong id="scoreContract" class="score-value">READY</strong></div>
+            <div class="score"><span>Standing</span><strong id="scoreStanding" class="score-value">READY</strong></div>
+            <div class="score"><span>Replay</span><strong id="scoreReplay" class="score-value">READY</strong></div>
+            <div class="score"><span>Lineage</span><strong id="scoreLineage" class="score-value">READY</strong></div>
+            <div class="score"><span>Commit attestation</span><strong id="scoreAttestation" class="score-value">READY</strong></div>
+          </div>
+        </div>
+        <div class="panel summary-card buyer-only">
+          <div class="section-title">Buyer brief</div>
+          <p>This is a governed decision surface that makes commit-boundary enforcement, receipts, replay discipline, and lineage legible.</p>
+          <ul class="mini-list">
+            <li>UI presents runtime truth, not surface guesses</li>
+            <li>Contract identity and state epoch matter at commit</li>
+            <li>Receipts can be inspected, chained, and replay-checked</li>
+          </ul>
+        </div>
+        <div class="panel summary-card auditor-only">
+          <div class="section-title">Auditor brief</div>
+          <p>Inspect contract gate, standing resolution, lineage verification, replay classification, and forged-receipt detectability.</p>
+        </div>
+      </section>
+
+      <section class="three-col proposal-layout">
+        <div class="panel">
+          <div class="section-title">Proposal</div>
+          <div class="form-grid">
+            <label>decision_id<input id="decision_id" /></label>
+            <label>authority<select id="authority"><option>true</option><option>false</option></select></label>
+            <label>consent<select id="consent"><option>granted</option><option>revoked</option></select></label>
+            <label>contextComplete<select id="contextComplete"><option>true</option><option>false</option></select></label>
+            <label>ttlSeconds<input id="ttlSeconds" type="number" /></label>
+            <label>risk<input id="risk" type="number" step="0.01" /></label>
+            <label>proposal state_epoch<input id="state_epoch" /></label>
+            <label>proposal contract sha<input id="proposal_contract_sha" /></label>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="section-title">Current state</div>
+          <div class="form-grid">
+            <label>live state epoch<input id="live_state_epoch" /></label>
+            <label>live contract sha<input id="live_contract_sha" /></label>
+            <label>notes<textarea id="notes" rows="11"></textarea></label>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="section-title">Decision-boundary enforcement</div>
+          <div class="facts compact">
+            <div><span>State epoch read</span><strong id="stateEpochReadout">—</strong></div>
+            <div><span>Lineage index</span><strong id="lineageReadout">—</strong></div>
+            <div><span>Replay classification</span><strong id="replayClassReadout">READY</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="two-col">
+        <div class="panel">
+          <div class="section-title">Commit-time re-binding timeline</div>
+          <pre id="commitTimeline"></pre>
+        </div>
+        <div class="panel">
+          <div class="section-title">Replay governing conditions</div>
+          <pre id="replayGovernance"></pre>
+        </div>
+      </section>
+
+      <section class="three-col">
+        <div class="panel">
+          <div class="section-title">Checks at commit</div>
+          <table class="checks"><tbody id="checksTable"></tbody></table>
+        </div>
+        <div class="panel">
+          <div class="section-title">Standing object</div>
+          <pre id="standingPanel"></pre>
+        </div>
+        <div class="panel">
+          <div class="section-title">Attestation + scorecards</div>
+          <pre id="attestationPanel"></pre>
+        </div>
+      </section>
+
+      <section class="panel phase-band"><div class="section-title">Phase 1 — decision-boundary enforcement</div><p class="phase-note">Admissibility is resolved at commit. The runtime selects the bounded outcome and emits the receipt from execution.</p></section>
+
+      <section class="two-col">
+        <div class="panel">
+          <div class="section-title">Receipt emission</div>
+          <pre id="receiptPanel"></pre>
+        </div>
+        <div class="panel">
+          <div class="section-title">Receipt / lineage verification</div>
+          <pre id="lineagePanel"></pre>
+        </div>
+      </section>
+
+      <section class="panel phase-band"><div class="section-title">Phase 2 — receipt / lineage verification</div><p class="phase-note">Verification proves continuity, replay classification, and tamper visibility after the boundary has already decided.</p></section>
+
+      <section class="three-col">
+        <div class="panel">
+          <div class="section-title">Runtime evidence</div>
+          <pre id="evidencePanel"></pre>
+        </div>
+        <div class="panel">
+          <div class="section-title">Replay analysis</div>
+          <pre id="replaySummary"></pre>
+          <pre id="replayDiff"></pre>
+        </div>
+        <div class="panel">
+          <div class="section-title">Adversarial surface</div>
+          <pre id="adversarialPanel"></pre>
+        </div>
+      </section>
+
+      <section class="two-col">
+        <div class="panel">
+          <div class="section-title">Run history</div>
+          <div id="historyPanel" class="history-list"></div>
+        </div>
+        <div class="panel">
+          <div class="section-title">Replay matrix</div>
+          <pre id="replayMatrix"></pre>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">Boundary API</div>
+        <pre id="boundaryApiPanel"></pre>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">Proof suite</div>
+        <div class="suite-meta"><span id="suiteSummary">No suite run yet.</span><div id="suiteStats" class="suite-stats"></div></div>
+        <pre id="suiteReport"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

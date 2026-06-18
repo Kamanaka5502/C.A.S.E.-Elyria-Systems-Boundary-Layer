@@ -1,0 +1,11 @@
+{
+  "deployment_profile": "local_boundary_service_stub",
+  "transport": "in-process boundary service",
+  "fail_closed_on_missing_boundary_envelope": true,
+  "fail_closed_on_invalid_channel": true,
+  "fail_closed_on_contract_load_mismatch": true,
+  "authoritative_contract": "./case_contract_authoritative_v5.json",
+  "runtime_identity": "CASE_v22_rerun_clean_runtime",
+  "build_identity": "case_v22_build_2026_04_09",
+  "release_line": "v22_rerun_clean"
+}

@@ -1,0 +1,5 @@
+PASS
+
+Receipt drift is constrained by lineage requirements.
+Each receipt carries prev_receipt_hash, lineage_index, and lineage_hash.
+Forged receipt changes are detectable because receipt_hash / lineage continuity no longer hold.
