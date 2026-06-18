@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">C.A.S.E. Elyria Systems Boundary Layer</title>
+  <desc id="desc">Commit-time admissibility, attestation, receipt, replay, and lineage verification.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F7F4EE"/>
+      <stop offset="100%" stop-color="#F2EFE7"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F6DE9D"/>
+      <stop offset="100%" stop-color="#C9A15B"/>
+    </linearGradient>
+    <linearGradient id="sageWave" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#9BB2A6" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#7E9487" stop-opacity="0.55"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#0F1D33" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .navy { fill: #0F1D33; }
+      .gold { fill: #C9A15B; }
+      .sage { fill: #7E9487; }
+      .line { stroke: #D9C79A; stroke-width: 2; }
+      .thin { stroke: #D9C79A; stroke-width: 1.1; stroke-dasharray: 3 6; }
+      .wave { fill: none; stroke: url(#sageWave); stroke-width: 3; }
+      .title { font: 700 72px Georgia, 'Times New Roman', serif; letter-spacing: 0.5px; }
+      .subtitle { font: italic 32px Georgia, 'Times New Roman', serif; }
+      .label { font: 600 20px Arial, Helvetica, sans-serif; letter-spacing: 3px; }
+      .process { font: 600 16px Georgia, 'Times New Roman', serif; }
+      .smallcaps { font: 600 14px Arial, Helvetica, sans-serif; letter-spacing: 4px; }
+      .quote { font: 600 22px Georgia, 'Times New Roman', serif; letter-spacing: 2px; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+  <path class="wave" d="M1210,180 C1300,110 1420,120 1600,155"/>
+  <path class="wave" d="M1180,210 C1300,145 1430,150 1600,190"/>
+  <path class="wave" d="M1160,242 C1300,180 1450,190 1600,225"/>
+  <path class="wave" d="M1130,760 C1270,720 1420,725 1600,790"/>
+  <path class="wave" d="M1110,785 C1280,748 1435,757 1600,822"/>
+  <path class="wave" d="M1090,815 C1285,780 1455,790 1600,854"/>
+
+  <g transform="translate(65,62)">
+    <circle cx="36" cy="36" r="36" fill="none" stroke="#C9A15B" stroke-width="2.2"/>
+    <path d="M18 63 C28 56, 34 34, 36 21 C38 34, 44 56, 54 63" fill="none" stroke="#C9A15B" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M10 63 H62" stroke="#C9A15B" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M36 8 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4z" fill="#C9A15B"/>
+  </g>
+
+  <text x="175" y="150" class="title navy">C.A.S.E. Elyria</text>
+  <text x="52" y="255" class="title navy">Systems Boundary Layer</text>
+  <line x1="52" y1="310" x2="630" y2="310" class="line"/>
+  <rect x="358" y="304" width="10" height="10" transform="rotate(45 363 309)" fill="#C9A15B"/>
+  <text x="54" y="370" class="subtitle navy">Commit-time admissibility, attestation,</text>
+  <text x="54" y="420" class="subtitle navy">receipt, replay, and lineage verification</text>
+
+  <g transform="translate(1165,380)">
+    <line x1="0" y1="-30" x2="0" y2="40" class="line"/>
+    <text x="20" y="-6" class="quote navy">NOT EVERYTHING THAT</text>
+    <text x="20" y="28" class="quote navy">CAN MOVE IS ALLOWED</text>
+    <text x="20" y="62" class="quote navy">TO BIND.</text>
+  </g>
+
+  <g opacity="0.8">
+    <circle cx="808" cy="546" r="122" fill="none" class="thin"/>
+    <circle cx="808" cy="546" r="103" fill="none" class="thin"/>
+    <circle cx="808" cy="546" r="85" fill="none" class="thin"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <circle cx="808" cy="546" r="74" fill="#17304D" stroke="#D9C79A" stroke-width="4"/>
+    <circle cx="808" cy="546" r="90" fill="none" stroke="#E8D6A7" stroke-width="3" opacity="0.7"/>
+    <rect x="790" y="490" width="36" height="112" rx="3" fill="url(#goldGlow)" filter="url(#glow)"/>
+    <path d="M760 510 L792 530 L792 570 L760 590 Z" fill="none" stroke="#D9C79A" stroke-width="3"/>
+    <path d="M856 510 L824 530 L824 570 L856 590 Z" fill="none" stroke="#D9C79A" stroke-width="3"/>
+  </g>
+
+  <text x="808" y="752" text-anchor="middle" class="title navy" font-size="30">Runtime</text>
+  <text x="808" y="800" text-anchor="middle" class="title navy" font-size="30">Commit Gate</text>
+  <text x="808" y="838" text-anchor="middle" class="label gold" font-size="16">THE CONSEQUENCE BOUNDARY</text>
+
+  <g transform="translate(86,520)">
+    <circle cx="0" cy="0" r="44" fill="#F7F4EE" stroke="#B9C0B3" stroke-width="2.5"/>
+    <path d="M-12 -20 H4 L16 -8 V20 H-12 Z" fill="none" stroke="#6E8294" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M4 -20 V-8 H16" fill="none" stroke="#6E8294" stroke-width="3"/>
+    <text x="0" y="88" text-anchor="middle" class="process navy">Proposal</text>
+  </g>
+  <line x1="132" y1="520" x2="205" y2="520" stroke="#0F1D33" stroke-width="2.5"/>
+  <path d="M205 520 l-10 -8 v16z" fill="#0F1D33"/>
+
+  <g transform="translate(280,520)">
+    <circle cx="0" cy="0" r="54" fill="#F7F4EE" stroke="#B9C0B3" stroke-width="2.5"/>
+    <path d="M-16 -20 L0 -28 L16 -20 L16 12 L0 24 L-16 12 Z" fill="none" stroke="#7E9487" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M-8 -4 C-2 -10, 6 -10, 12 -4 C6 2, -2 2, -8 8" fill="none" stroke="#9BB2A6" stroke-width="2.2"/>
+    <path d="M-8 6 C-2 0, 6 0, 12 6" fill="none" stroke="#9BB2A6" stroke-width="2.2"/>
+    <text x="0" y="88" text-anchor="middle" class="process navy">Boundary</text>
+    <text x="0" y="112" text-anchor="middle" class="process navy">Envelope</text>
+  </g>
+  <line x1="334" y1="520" x2="410" y2="520" stroke="#0F1D33" stroke-width="2.5"/>
+  <path d="M410 520 l-10 -8 v16z" fill="#0F1D33"/>
+
+  <g transform="translate(490,520)">
+    <circle cx="0" cy="0" r="54" fill="#F7F4EE" stroke="#B9C0B3" stroke-width="2.5"/>
+    <rect x="-18" y="-24" width="36" height="48" rx="4" fill="none" stroke="#6E8294" stroke-width="3"/>
+    <rect x="-8" y="-30" width="16" height="10" rx="3" fill="#F7F4EE" stroke="#6E8294" stroke-width="3"/>
+    <path d="M-10 -8 l5 5 8 -10 M-10 8 l5 5 8 -10" fill="none" stroke="#7E9487" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="0" y="88" text-anchor="middle" class="process navy">Contract</text>
+    <text x="0" y="112" text-anchor="middle" class="process navy">Check</text>
+  </g>
+  <line x1="544" y1="520" x2="713" y2="520" stroke="#0F1D33" stroke-width="2.5"/>
+  <path d="M713 520 l-10 -8 v16z" fill="#0F1D33"/>
+  <line x1="903" y1="520" x2="973" y2="520" stroke="#0F1D33" stroke-width="2.5"/>
+  <path d="M973 520 l-10 -8 v16z" fill="#0F1D33"/>
+
+  <g transform="translate(1048,520)">
+    <circle cx="0" cy="0" r="54" fill="#F7F4EE" stroke="#B9C0B3" stroke-width="2.5"/>
+    <path d="M0 -18 l16 6 v12 c0 10 -7 19 -16 24 c-9 -5 -16 -14 -16 -24 v-12z" fill="none" stroke="#7E9487" stroke-width="3"/>
+    <path d="M-7 0 l6 6 12 -14" fill="none" stroke="#7E9487" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="88" text-anchor="middle" class="process navy">Attestation</text>
+  </g>
+  <line x1="1102" y1="520" x2="1176" y2="520" stroke="#0F1D33" stroke-width="2.5"/>
+  <path d="M1176 520 l-10 -8 v16z" fill="#0F1D33"/>
+
+  <g transform="translate(1251,520)">
+    <circle cx="0" cy="0" r="54" fill="#F7F4EE" stroke="#B9C0B3" stroke-width="2.5"/>
+    <path d="M-15 -20 H15 V16 H-15 Z" fill="none" stroke="#7E9487" stroke-width="3"/>
+    <path d="M-8 -8 H8 M-8 4 H8" stroke="#7E9487" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-7 16 h14 l-7 8z" fill="#7E9487"/>
+    <text x="0" y="88" text-anchor="middle" class="process navy">Receipt</text>
+  </g>
+  <line x1="1305" y1="520" x2="1379" y2="520" stroke="#0F1D33" stroke-width="2.5"/>
+  <path d="M1379 520 l-10 -8 v16z" fill="#0F1D33"/>
+
+  <g transform="translate(1454,520)">
+    <circle cx="0" cy="0" r="54" fill="#F7F4EE" stroke="#B9C0B3" stroke-width="2.5"/>
+    <path d="M-10 -10 a18 18 0 1 1 0 20" fill="none" stroke="#7E9487" stroke-width="3"/>
+    <path d="M10 14 l-2 16 14 -8z" fill="#7E9487"/>
+    <text x="0" y="88" text-anchor="middle" class="process navy">Replay</text>
+  </g>
+
+  <g transform="translate(1545,520)">
+    <circle cx="0" cy="0" r="54" fill="#F7F4EE" stroke="#B9C0B3" stroke-width="2.5"/>
+    <path d="M0 -18 V18 M-18 0 H18" fill="none" stroke="#7E9487" stroke-width="3"/>
+    <path d="M0 -18 v-10 M0 18 v10 M-18 0 h-10 M18 0 h10" fill="none" stroke="#7E9487" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="-28" r="4" fill="#7E9487"/>
+    <circle cx="0" cy="28" r="4" fill="#7E9487"/>
+    <circle cx="-28" cy="0" r="4" fill="#7E9487"/>
+    <circle cx="28" cy="0" r="4" fill="#7E9487"/>
+    <text x="0" y="88" text-anchor="middle" class="process navy">Lineage</text>
+    <text x="0" y="112" text-anchor="middle" class="process navy">Verification</text>
+  </g>
+
+  <line x1="46" y1="908" x2="1554" y2="908" class="line"/>
+  <rect x="798" y="903" width="10" height="10" transform="rotate(45 803 908)" fill="#C9A15B"/>
+  <g transform="translate(50,935)">
+    <text x="76" y="16" class="label navy" font-size="28">C.A.S.E.</text>
+    <text x="270" y="8" class="smallcaps navy" font-size="12">CENTER FOR ADVANCED</text>
+    <text x="270" y="30" class="smallcaps navy" font-size="12">STEWARDSHIP &amp; ETHICS</text>
+  </g>
+  <g transform="translate(1060,940)">
+    <path d="M0 0 C20 -18, 40 -14, 56 0 C42 26, 18 42, 0 50 C-12 32, -12 14, 0 0 Z" fill="none" stroke="#7E9487" stroke-width="2.6"/>
+    <path d="M10 42 C26 16, 36 10, 48 4" fill="none" stroke="#7E9487" stroke-width="2.3"/>
+    <text x="74" y="10" class="subtitle sage" font-size="22">Human-attuned governance meets</text>
+    <text x="74" y="44" class="subtitle sage" font-size="22">consequence-boundary enforcement.</text>
+  </g>
+</svg>
