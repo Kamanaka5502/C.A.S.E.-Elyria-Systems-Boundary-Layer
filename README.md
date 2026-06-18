@@ -24,6 +24,12 @@ Core invariant:
 Boundary resolves.  
 No protected consequence binds without the boundary result.**
 
+<p align="center">
+  <img src="docs/assets/case-hero.svg" alt="C.A.S.E. Elyria Systems Boundary Layer" width="100%" />
+</p>
+
+<p align="center"><em>Approval is not enough. Standing must be re-bound at commit.</em></p>
+
 ## A+ Local Artifact Reviewer Path
 
 Run:
@@ -79,12 +85,6 @@ Python verifier path:
 python external-verifier/verify_a_plus_bundle.py
 pytest
 ```
-
-<p align="center">
-  <img src="docs/assets/case-hero.svg" alt="C.A.S.E. Elyria Systems Boundary Layer" width="100%" />
-</p>
-
-<p align="center"><em>Approval is not enough. Standing must be re-bound at commit.</em></p>
 
 <p align="center">
   <img alt="Boundary" src="https://img.shields.io/badge/Boundary-runtime__commit__gate-0F1D33?style=for-the-badge&labelColor=C9A15B" />
