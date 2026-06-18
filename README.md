@@ -16,26 +16,61 @@ Core invariant:
 Boundary resolves.  
 No protected consequence binds without the boundary result.**
 
-Reviewer commands:
+## A+ Local Artifact Reviewer Path
+
+Run:
 
 ```bash
+npm install
 npm run verify
-pytest
 ```
 
-Python-only verifier:
-
-```bash
-python external-verifier/verify_a_plus_bundle.py
-```
-
-Expected result:
+Expected:
 
 ```text
 RESULT: C.A.S.E. BOUNDARY PASS
 ```
 
-This repo proves local artifact truth for this release package. It does not claim production deployment, third-party certification, or universal governance proof.
+Tamper test:
+
+```bash
+node -e "const fs=require('fs'); const p='release/case_v22_rerun_clean_release/contracts/deployment_profile.json'; fs.appendFileSync(p, '\n')"
+npm run verify
+```
+
+Expected:
+
+```text
+RESULT: C.A.S.E. BOUNDARY FAIL
+```
+
+Restore:
+
+```bash
+git checkout -- release/case_v22_rerun_clean_release/
+npm run verify
+```
+
+Expected:
+
+```text
+RESULT: C.A.S.E. BOUNDARY PASS
+```
+
+Executable tamper check:
+
+```bash
+npm run tamper:test
+```
+
+This is a local artifact proof surface. It does not claim production certification, third-party certification, universal governance proof, deployed network no-bypass enforcement, or protected kernel disclosure.
+
+Python verifier path:
+
+```bash
+python external-verifier/verify_a_plus_bundle.py
+pytest
+```
 
 <p align="center">
   <img src="docs/assets/case-hero.svg" alt="C.A.S.E. Elyria Systems Boundary Layer" width="100%" />
@@ -63,6 +98,7 @@ This repo proves local artifact truth for this release package. It does not clai
 
 Start here:
 
+- [`A_PLUS_REVIEW_EVIDENCE.md`](A_PLUS_REVIEW_EVIDENCE.md)
 - [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md)
 - [`BUYER_REVIEW_GUIDE.md`](BUYER_REVIEW_GUIDE.md)
 - [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md)
@@ -139,6 +175,7 @@ scripts/
   run-proof-suite.mjs
   verify-release-hashes.mjs
   serve.mjs
+  tamper-test.mjs
 external-verifier/
   verify_a_plus_bundle.py
   verify_digest_manifest.py
@@ -171,14 +208,16 @@ http://localhost:8080/ui/
 ```bash
 npm run verify
 pytest
+npm run tamper:test
 ```
 
-This runs Node release verification, Node proof execution, Python external verification, and pytest coverage for the verifier lane.
+This runs Node release verification, Node proof execution, Python external verification, pytest coverage for the verifier lane, and executable tamper-fail validation.
 
 - `verify:hashes` validates `RELEASE_HASHES.json` against the preserved release files.
 - `proof` executes the C.A.S.E. proof suite, validates boundary documentation, and emits the final boundary result.
 - `verify:python` executes `external-verifier/verify_a_plus_bundle.py`.
 - `pytest` checks the Python verifier lane.
+- `tamper:test` mutates a preserved release artifact, requires verifier failure, restores the artifact, and requires verifier pass.
 
 Expected final passing line:
 
