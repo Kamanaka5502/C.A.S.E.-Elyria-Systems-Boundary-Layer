@@ -1,12 +1,14 @@
+# ✨ C.A.S.E. Elyria Systems Boundary Layer
+
+**C.A.S.E.–Elyria Systems Boundary Layer** is a buyer-reviewable local proof package for commit-time admissibility in governed AI execution. It demonstrates how an effect-bearing proposal enters a boundary envelope, loads an authoritative contract, resolves admissibility at runtime commit, emits attestation and receipt, supports replay, and breaks lineage verification on tamper.
+
+This repo is **not production-certified**, **not third-party certified**, and **not a deployed no-bypass system**. It is a bounded proof surface for buyer review and pilot scoping.
+
 <p align="center">
   <img src="docs/assets/case-hero.svg" alt="C.A.S.E. Elyria Systems Boundary Layer" width="100%" />
 </p>
 
-<h1 align="center">✨ C.A.S.E. Elyria Systems Boundary Layer</h1>
-
-<p align="center"><strong>Commit-time admissibility, attestation, receipt, replay, and lineage verification.</strong></p>
-
-<p align="center"><em>Human-attuned governance meets consequence-boundary enforcement.</em></p>
+<p align="center"><em>Approval is not enough. Standing must be re-bound at commit.</em></p>
 
 <p align="center">
   <img alt="Boundary" src="https://img.shields.io/badge/Boundary-runtime__commit__gate-0F1D33?style=for-the-badge&labelColor=C9A15B" />
@@ -24,7 +26,25 @@
 
 ---
 
-## ✨ What this is
+## Buyer review path
+
+Start here:
+
+- [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md)
+- [`BUYER_REVIEW_GUIDE.md`](BUYER_REVIEW_GUIDE.md)
+- [`CLAIMS_BOUNDARY.md`](CLAIMS_BOUNDARY.md)
+- [`PILOT_LANE.md`](PILOT_LANE.md)
+- [`COMMERCIAL_BOUNDARY.md`](COMMERCIAL_BOUNDARY.md)
+- [`SECURITY_POSTURE.md`](SECURITY_POSTURE.md)
+- [`PROOF_SURFACE.md`](PROOF_SURFACE.md)
+- [`PROOF_RESULTS.md`](PROOF_RESULTS.md)
+- [`docs/BUYER_DEMO_SCRIPT.md`](docs/BUYER_DEMO_SCRIPT.md)
+- [`docs/CASE_ELYRIA_MAPPING.md`](docs/CASE_ELYRIA_MAPPING.md)
+- [`docs/BUYER_FAQ.md`](docs/BUYER_FAQ.md)
+
+---
+
+## What this is
 
 **C.A.S.E. v22 Rerun Clean Release** is a local artifact proof surface for governed execution admission.
 
@@ -34,7 +54,7 @@ It packages the C.A.S.E. layer as a reviewable boundary system:
 
 ---
 
-## 🛡️ What this repository proves
+## What this repository proves
 
 This package proves the local artifact line represented here:
 
@@ -48,21 +68,25 @@ This package proves the local artifact line represented here:
 
 ---
 
-## 🚫 What this repository does not prove
+## What this repository does not prove
 
 This repository does **not** claim:
 
 - production deployment hardening
 - third-party certification
 - universal governance proof
-- deployed network no-bypass enforcement
+- deployed no-bypass enforcement
+- C.A.S.E. certification
+- psychological safety certification
+- legal or compliance guarantee
 - proof of any original artifact outside this release package
+- full Elyria protected kernel disclosure
 
 The claim is narrower and stronger: **local artifact truth for this C.A.S.E. v22 release package.**
 
 ---
 
-## 📦 Repository layout
+## Repository layout
 
 ```text
 release/case_v22_rerun_clean_release/
@@ -84,7 +108,7 @@ The release package is preserved under `release/case_v22_rerun_clean_release/` s
 
 ---
 
-## 🚀 Run locally
+## Run locally
 
 ```bash
 npm run start
@@ -98,7 +122,7 @@ http://localhost:8080/ui/
 
 ---
 
-## ✅ Verify the release
+## Verify the release
 
 ```bash
 npm run verify
@@ -116,20 +140,18 @@ npm run proof
 
 ---
 
-## 🔎 Recommended GitHub posture
+## Commercial boundary
 
-Start this repository as **private**.
-
-Public exposure should be limited to the proof surface only. Do not publish deeper proprietary runtime lineage, customer materials, private engagement material, or implementation claims that exceed the local artifact boundary.
+This repository is a review surface, not a commercial deployment license. Commercial pilots require written scope. Customer data cannot be used without agreement. Production deployment requires a separate security and architecture review.
 
 ---
 
-## 🏛️ Suggested repository metadata
+## Suggested repository metadata
 
 **Name:** `C.A.S.E.-Elyria-Systems-Boundary-Layer`
 
 **Description:**  
-Local artifact proof surface for C.A.S.E. boundary enforcement, commit-time admissibility, attestation, receipt, replay, and lineage verification.
+Buyer-reviewable local proof package for C.A.S.E.–Elyria commit-time admissibility, attestation, receipt, replay, and lineage verification.
 
 **Topics:**  
 `ai-governance`, `runtime-governance`, `admissibility`, `commit-gate`, `replay`, `receipts`, `lineage`, `deterministic-systems`, `ai-safety`, `compliance`
