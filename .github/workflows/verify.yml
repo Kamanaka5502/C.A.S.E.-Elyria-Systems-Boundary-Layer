@@ -1,4 +1,4 @@
-name: Verify C.A.S.E. Boundary Layer
+name: Verify C.A.S.E. Boundary
 
 on:
   push:
@@ -7,9 +7,17 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm run verify
+
+      - name: Install
+        run: npm install
+
+      - name: Verify release and proof suite
+        run: npm run verify
