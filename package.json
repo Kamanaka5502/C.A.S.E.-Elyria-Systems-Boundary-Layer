@@ -8,7 +8,9 @@
     "start": "node scripts/serve.mjs",
     "verify:hashes": "node scripts/verify-release-hashes.mjs",
     "proof": "node scripts/run-proof-suite.mjs",
-    "verify": "npm run verify:hashes && npm run proof"
+    "verify:python": "python external-verifier/verify_a_plus_bundle.py",
+    "test:python": "pytest",
+    "verify": "npm run verify:hashes && npm run proof && npm run verify:python"
   },
   "keywords": [
     "ai-governance",
