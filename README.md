@@ -16,10 +16,17 @@ Core invariant:
 Boundary resolves.  
 No protected consequence binds without the boundary result.**
 
-Reviewer command:
+Reviewer commands:
 
 ```bash
 npm run verify
+pytest
+```
+
+Python-only verifier:
+
+```bash
+python external-verifier/verify_a_plus_bundle.py
 ```
 
 Expected result:
@@ -64,6 +71,9 @@ Start here:
 - [`SECURITY_POSTURE.md`](SECURITY_POSTURE.md)
 - [`PROOF_SURFACE.md`](PROOF_SURFACE.md)
 - [`PROOF_RESULTS.md`](PROOF_RESULTS.md)
+- [`external-verifier/verify_a_plus_bundle.py`](external-verifier/verify_a_plus_bundle.py)
+- [`external-verifier/verify_digest_manifest.py`](external-verifier/verify_digest_manifest.py)
+- [`tests/test_external_verifier.py`](tests/test_external_verifier.py)
 - [`docs/NO_BIND_PROOF_TRANSCRIPT.md`](docs/NO_BIND_PROOF_TRANSCRIPT.md)
 - [`docs/ROUTE_CLOSURE_PROOF.md`](docs/ROUTE_CLOSURE_PROOF.md)
 - [`docs/CHANGED_CONDITION_REPLAY_TRANSCRIPT.md`](docs/CHANGED_CONDITION_REPLAY_TRANSCRIPT.md)
@@ -129,6 +139,11 @@ scripts/
   run-proof-suite.mjs
   verify-release-hashes.mjs
   serve.mjs
+external-verifier/
+  verify_a_plus_bundle.py
+  verify_digest_manifest.py
+tests/
+  test_external_verifier.py
 .github/workflows/
   verify.yml
 ```
@@ -155,17 +170,15 @@ http://localhost:8080/ui/
 
 ```bash
 npm run verify
+pytest
 ```
 
-This runs:
-
-```bash
-npm run verify:hashes
-npm run proof
-```
+This runs Node release verification, Node proof execution, Python external verification, and pytest coverage for the verifier lane.
 
 - `verify:hashes` validates `RELEASE_HASHES.json` against the preserved release files.
 - `proof` executes the C.A.S.E. proof suite, validates boundary documentation, and emits the final boundary result.
+- `verify:python` executes `external-verifier/verify_a_plus_bundle.py`.
+- `pytest` checks the Python verifier lane.
 
 Expected final passing line:
 
