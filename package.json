@@ -10,19 +10,8 @@
     "proof": "node scripts/run-proof-suite.mjs",
     "verify:python": "python external-verifier/verify_a_plus_bundle.py",
     "test:python": "pytest",
+    "tamper:test": "node scripts/tamper-test.mjs",
     "verify": "npm run verify:hashes && npm run proof && npm run verify:python"
   },
-  "keywords": [
-    "ai-governance",
-    "runtime-governance",
-    "admissibility",
-    "commit-gate",
-    "replay",
-    "receipts",
-    "lineage",
-    "deterministic-systems",
-    "ai-safety",
-    "compliance"
-  ],
   "license": "UNLICENSED"
 }
