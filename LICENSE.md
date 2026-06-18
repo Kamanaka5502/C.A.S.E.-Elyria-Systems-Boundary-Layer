@@ -1,6 +1,6 @@
 # License
 
-Copyright © Samantha Revita-Wagner. All rights reserved.
+Copyright © Samantha Revita. All rights reserved.
 
 This repository is provided as a reviewable proof surface and governed execution artifact.
 
