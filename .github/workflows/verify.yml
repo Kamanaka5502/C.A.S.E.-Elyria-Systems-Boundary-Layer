@@ -7,7 +7,25 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      - name: Repository status
-        run: echo "RESULT: C.A.S.E. BOUNDARY PASS"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Node package
+        run: npm install
+
+      - name: Verify release hashes and proof suite
+        run: npm run verify
+
+      - name: Verify Python digest parity
+        run: npm run verify:python-digest
