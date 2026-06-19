@@ -3,15 +3,14 @@
   "version": "22.0.0",
   "private": true,
   "type": "module",
-  "description": "Local artifact proof surface for C.A.S.E. boundary enforcement, commit-time admissibility, attestation, receipt, replay, and lineage verification.",
+  "description": "Python-first local artifact proof surface for C.A.S.E. boundary enforcement, commit-time admissibility, attestation, receipt, replay, and lineage verification.",
   "scripts": {
     "start": "node scripts/serve.mjs",
-    "verify:hashes": "node scripts/verify-release-hashes.mjs",
-    "proof": "node scripts/run-proof-suite.mjs",
-    "verify:python": "python external-verifier/verify_a_plus_bundle.py",
+    "verify": "python -m case_boundary_layer.cli verify",
+    "tamper:test": "python -m case_boundary_layer.cli tamper-test",
     "test:python": "pytest",
-    "tamper:test": "node scripts/tamper-test.mjs",
-    "verify": "npm run verify:hashes && npm run proof && npm run verify:python"
+    "verify:node": "node scripts/verify-release-hashes.mjs && node scripts/run-proof-suite.mjs",
+    "verify:external": "python external-verifier/verify_a_plus_bundle.py"
   },
   "license": "UNLICENSED"
 }
