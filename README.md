@@ -1,6 +1,10 @@
 # ✨ C.A.S.E. Elyria Systems Boundary Layer
 
-![Verify C.A.S.E. Boundary](https://github.com/Kamanaka5502/C.A.S.E.-Elyria-Systems-Boundary-Layer/actions/workflows/verify.yml/badge.svg)
+<p align="center">
+  <img alt="Classification" src="https://img.shields.io/badge/Classification-A%2B%20local%20artifact%20proof%20surface-0F1D33?style=for-the-badge&labelColor=C9A15B" />
+  <img alt="Primary Layer" src="https://img.shields.io/badge/Primary%20Layer-Python-0F1D33?style=for-the-badge&labelColor=7E9487" />
+  <img alt="Claim Boundary" src="https://img.shields.io/badge/Claim-Bounded%20local%20artifact%20truth-0F1D33?style=for-the-badge&labelColor=C9A15B" />
+</p>
 
 ## Current Classification
 
