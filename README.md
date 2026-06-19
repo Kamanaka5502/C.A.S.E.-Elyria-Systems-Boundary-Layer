@@ -10,6 +10,14 @@ This classification is bounded to the claim this repository actually makes.
 
 It is **not** production-certified, third-party certified, universal governance proof, deployed network no-bypass proof, customer-specific corridor certification, or protected kernel disclosure.
 
+## Python-first layer
+
+C.A.S.E. is now organized as a **Python-first boundary-layer implementation**.
+
+Python is the primary path for release-hash verification, boundary envelope validation, runtime commit-gate evaluation, standing re-bind, admissibility resolution, receipt emission, replay comparison, lineage/tamper detection, proof-suite execution, and tamper-fail validation.
+
+Node remains only as an optional local UI/reviewer harness.
+
 ## Reviewer Summary
 
 C.A.S.E. Elyria Systems Boundary Layer is a public-safe local artifact proof surface for proposed effect-bearing movement.
@@ -39,6 +47,12 @@ npm install
 npm run verify
 ```
 
+Equivalent direct Python command:
+
+```bash
+python -m case_boundary_layer.cli verify
+```
+
 Expected:
 
 ```text
@@ -48,38 +62,26 @@ RESULT: C.A.S.E. BOUNDARY PASS
 Tamper test:
 
 ```bash
-node -e "const fs=require('fs'); const p='release/case_v22_rerun_clean_release/contracts/deployment_profile.json'; fs.appendFileSync(p, '\n')"
-npm run verify
+npm run tamper:test
 ```
 
-Expected:
+Equivalent direct Python command:
+
+```bash
+python -m case_boundary_layer.cli tamper-test
+```
+
+Expected tamper behavior:
 
 ```text
 RESULT: C.A.S.E. BOUNDARY FAIL
-```
-
-Restore:
-
-```bash
-git checkout -- release/case_v22_rerun_clean_release/
-npm run verify
-```
-
-Expected:
-
-```text
 RESULT: C.A.S.E. BOUNDARY PASS
-```
-
-Executable tamper check:
-
-```bash
-npm run tamper:test
+RESULT: C.A.S.E. TAMPER TEST PASS
 ```
 
 This is a local artifact proof surface. It does not claim production certification, third-party certification, universal governance proof, deployed network no-bypass enforcement, or protected kernel disclosure.
 
-Python verifier path:
+Python external verifier path:
 
 ```bash
 python external-verifier/verify_a_plus_bundle.py
@@ -106,6 +108,7 @@ pytest
 
 Start here:
 
+- [`LAYER_ARCHITECTURE.md`](LAYER_ARCHITECTURE.md)
 - [`A_PLUS_CLASSIFICATION.md`](A_PLUS_CLASSIFICATION.md)
 - [`A_PLUS_REVIEW_EVIDENCE.md`](A_PLUS_REVIEW_EVIDENCE.md)
 - [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md)
@@ -116,8 +119,10 @@ Start here:
 - [`SECURITY_POSTURE.md`](SECURITY_POSTURE.md)
 - [`PROOF_SURFACE.md`](PROOF_SURFACE.md)
 - [`PROOF_RESULTS.md`](PROOF_RESULTS.md)
+- [`case_boundary_layer/`](case_boundary_layer/)
 - [`external-verifier/verify_a_plus_bundle.py`](external-verifier/verify_a_plus_bundle.py)
 - [`external-verifier/verify_digest_manifest.py`](external-verifier/verify_digest_manifest.py)
+- [`tests/test_python_boundary_layer.py`](tests/test_python_boundary_layer.py)
 - [`tests/test_external_verifier.py`](tests/test_external_verifier.py)
 - [`docs/NO_BIND_PROOF_TRANSCRIPT.md`](docs/NO_BIND_PROOF_TRANSCRIPT.md)
 - [`docs/ROUTE_CLOSURE_PROOF.md`](docs/ROUTE_CLOSURE_PROOF.md)
@@ -173,25 +178,13 @@ The claim is narrow by design:
 ## Repository layout
 
 ```text
-release/case_v22_rerun_clean_release/
-  contracts/       authoritative contract identity and deployment profile
-  runtime/         boundary service, commit gate, receipt, replay, lineage, proof suite
-  ui/              local reviewer interface
-  proof/           proof cases and generated proof-suite reports
-  gates/           gate output snapshots
-  docs/            release documentation and claim-scope material
-scripts/
-  run-proof-suite.mjs
-  verify-release-hashes.mjs
-  serve.mjs
-  tamper-test.mjs
-external-verifier/
-  verify_a_plus_bundle.py
-  verify_digest_manifest.py
-tests/
-  test_external_verifier.py
-.github/workflows/
-  verify.yml
+case_boundary_layer/        Python primary boundary layer
+external-verifier/          Python external reviewer verifier
+release/                    preserved release artifacts and proof fixtures
+scripts/                    optional Node UI/reviewer harness
+tests/                      pytest verification surface
+docs/                       buyer-review evidence and proof transcripts
+.github/workflows/          CI verification path
 ```
 
 The release package is preserved under `release/case_v22_rerun_clean_release/` so the included release manifest and release-hash file remain directly verifiable.
@@ -220,13 +213,12 @@ pytest
 npm run tamper:test
 ```
 
-This runs Node release verification, Node proof execution, Python external verification, pytest coverage for the verifier lane, and executable tamper-fail validation.
+This runs Python primary release verification, Python proof execution, pytest coverage, executable tamper-fail validation, and optional Node harness parity in CI.
 
-- `verify:hashes` validates `RELEASE_HASHES.json` against the preserved release files.
-- `proof` executes the C.A.S.E. proof suite, validates boundary documentation, and emits the final boundary result.
-- `verify:python` executes `external-verifier/verify_a_plus_bundle.py`.
-- `pytest` checks the Python verifier lane.
+- `npm run verify` executes `python -m case_boundary_layer.cli verify`.
+- `pytest` checks the Python boundary layer and external verifier lane.
 - `tamper:test` mutates a preserved release artifact, requires verifier failure, restores the artifact, and requires verifier pass.
+- `verify:node` remains available as an optional Node harness parity check.
 
 Expected final passing line:
 
@@ -253,7 +245,7 @@ This repository is a review surface, not a commercial deployment license. Commer
 **Name:** `C.A.S.E.-Elyria-Systems-Boundary-Layer`
 
 **Description:**  
-Buyer-reviewable local proof package for C.A.S.E.–Elyria pre-formation consequence-boundary review, commit-time admissibility, attestation, receipt, replay, and lineage verification.
+Python-first buyer-reviewable local proof package for C.A.S.E.–Elyria pre-formation consequence-boundary review, commit-time admissibility, attestation, receipt, replay, and lineage verification.
 
 **Topics:**  
-`ai-governance`, `runtime-governance`, `admissibility`, `commit-gate`, `replay`, `receipts`, `lineage`, `deterministic-systems`, `ai-safety`, `compliance`
+`ai-governance`, `runtime-governance`, `admissibility`, `commit-gate`, `replay`, `receipts`, `lineage`, `deterministic-systems`, `ai-safety`, `python`
