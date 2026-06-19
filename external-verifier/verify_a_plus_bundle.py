@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""External verifier for the C.A.S.E. boundary proof surface."""
+"""External verifier for the Python-first C.A.S.E. boundary proof surface."""
 
 from __future__ import annotations
 
@@ -13,9 +13,13 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = [
     "README.md",
     "CLAIM_BOUNDARY.md",
+    "LAYER_ARCHITECTURE.md",
     "package.json",
-    "scripts/verify-release-hashes.mjs",
-    "scripts/run-proof-suite.mjs",
+    "case_boundary_layer/cli.py",
+    "case_boundary_layer/engine.py",
+    "case_boundary_layer/service.py",
+    "case_boundary_layer/proof.py",
+    "case_boundary_layer/hash_verifier.py",
     "release/case_v22_rerun_clean_release/RELEASE_HASHES.json",
     "release/case_v22_rerun_clean_release/contracts/case_contract_authoritative_v5.json",
     "release/case_v22_rerun_clean_release/contracts/contract_identity.json",
@@ -35,111 +39,62 @@ REQUIRED_FILES = [
 ]
 
 
-def pass_line(message: str) -> None:
-    print(f"[PASS] {message}")
-
-
-def fail_line(message: str) -> None:
-    print(f"[FAIL] {message}")
-
-
-def read_text(path: str) -> str:
-    return (ROOT / path).read_text(encoding="utf-8")
-
-
-def load_json(path: str) -> dict:
-    return json.loads(read_text(path))
-
-
 def run_command(args: list[str]) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(
-        args,
-        cwd=ROOT,
-        text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        check=False,
-    )
+    return subprocess.run(args, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False)
 
 
 def main() -> int:
-    print("C.A.S.E. BOUNDARY EXTERNAL VERIFICATION")
-    print()
+    print("C.A.S.E. PYTHON-FIRST EXTERNAL VERIFICATION")
     failures: list[str] = []
 
     missing = [path for path in REQUIRED_FILES if not (ROOT / path).exists()]
     if missing:
         failures.extend(f"missing required file: {path}" for path in missing)
-        fail_line("required buyer-review files present")
-        for path in missing:
-            fail_line(f"missing required file: {path}")
     else:
-        pass_line("required buyer-review files present")
+        print("[PASS] required Python boundary-layer and buyer-review files present")
+
+    claim_boundary = (ROOT / "CLAIM_BOUNDARY.md").read_text(encoding="utf-8") if (ROOT / "CLAIM_BOUNDARY.md").exists() else ""
+    invariant_ok = all(part in claim_boundary for part in [
+        "Proposed movement enters",
+        "Boundary resolves",
+        "No protected consequence binds without the boundary result",
+    ])
+    if invariant_ok:
+        print("[PASS] claim boundary invariant present")
+    else:
+        failures.append("claim boundary invariant missing")
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8") if (ROOT / "README.md").exists() else ""
+    readme_ok = (
+        "proposed effect-bearing movement" in readme
+        and "The repo does not merely show a runtime gate" in readme
+        and "RESULT: C.A.S.E. BOUNDARY PASS" in readme
+    )
+    if readme_ok:
+        print("[PASS] README category framing present")
+    else:
+        failures.append("README category framing incomplete")
+
+    primary = run_command([sys.executable, "-m", "case_boundary_layer.cli", "verify"])
+    print(primary.stdout.rstrip())
+    if primary.returncode == 0 and "RESULT: C.A.S.E. BOUNDARY PASS" in primary.stdout:
+        print("[PASS] Python primary boundary verifier emitted boundary pass")
+    else:
+        failures.append("Python primary boundary verifier failed")
 
     try:
-        claim_boundary = read_text("CLAIM_BOUNDARY.md")
-        invariant_ok = (
-            "Proposed movement enters" in claim_boundary
-            and "Boundary resolves" in claim_boundary
-            and "No protected consequence binds without the boundary result" in claim_boundary
-        )
-        if invariant_ok:
-            pass_line("claim boundary invariant present")
-        else:
-            failures.append("claim boundary invariant missing")
-            fail_line("claim boundary invariant present")
-    except Exception as exc:
-        failures.append(f"claim boundary unreadable: {exc}")
-        fail_line("claim boundary readable")
-
-    try:
-        readme = read_text("README.md")
-        readme_ok = (
-            "proposed effect-bearing movement" in readme
-            and "The repo does not merely show a runtime gate" in readme
-            and "RESULT: C.A.S.E. BOUNDARY PASS" in readme
-        )
-        if readme_ok:
-            pass_line("README category framing present")
-        else:
-            failures.append("README category framing incomplete")
-            fail_line("README category framing present")
-    except Exception as exc:
-        failures.append(f"README unreadable: {exc}")
-        fail_line("README readable")
-
-    digest = run_command([sys.executable, "external-verifier/verify_digest_manifest.py"])
-    print(digest.stdout.rstrip())
-    if digest.returncode == 0:
-        pass_line("Python digest manifest verification passed")
-    else:
-        failures.append("Python digest manifest verification failed")
-        fail_line("Python digest manifest verification passed")
-
-    proof = run_command(["node", "scripts/run-proof-suite.mjs"])
-    print(proof.stdout.rstrip())
-    if proof.returncode == 0 and "RESULT: C.A.S.E. BOUNDARY PASS" in proof.stdout:
-        pass_line("Node proof suite emitted boundary pass")
-    else:
-        failures.append("Node proof suite did not emit boundary pass")
-        fail_line("Node proof suite emitted boundary pass")
-
-    try:
-        report = load_json("artifacts/proof_suite_report_current.json")
-        cases = {case.get("case", case.get("name")): case for case in report.get("cases", [])}
-        required_cases = ["refuse", "replay", "tamper", "forged_receipt", "precheck"]
-        missing_cases = [case for case in required_cases if case not in cases]
+        report = json.loads((ROOT / "artifacts" / "proof_suite_report_current.json").read_text(encoding="utf-8"))
+        cases = {case.get("case"): case for case in report.get("cases", [])}
+        required_cases = {"refuse", "replay", "tamper", "forged_receipt", "precheck"}
+        missing_cases = sorted(required_cases - set(cases))
         failed_cases = [name for name, case in cases.items() if not case.get("pass")]
         if not missing_cases and not failed_cases:
-            pass_line("no-bind, replay, tamper, forged-receipt, and precheck cases present and passing")
+            print("[PASS] no-bind, replay, tamper, forged-receipt, and precheck cases present and passing")
         else:
             failures.append(f"proof cases incomplete: missing={missing_cases}, failed={failed_cases}")
-            fail_line("no-bind, replay, tamper, forged-receipt, and precheck cases present and passing")
     except Exception as exc:
         failures.append(f"proof report unreadable: {exc}")
-        fail_line("proof report readable")
 
-    print()
     if failures:
         print(json.dumps({"status": "FAIL", "failures": failures}, indent=2))
         print("RESULT: C.A.S.E. BOUNDARY FAIL")
@@ -147,8 +102,9 @@ def main() -> int:
 
     print(json.dumps({
         "status": "PASS",
+        "runtime": "python-primary",
         "invariant": "Proposed movement enters. Boundary resolves. No protected consequence binds without the boundary result.",
-        "reviewer_command": "python external-verifier/verify_a_plus_bundle.py && pytest",
+        "reviewer_command": "python -m case_boundary_layer.cli verify && pytest",
     }, indent=2))
     print("RESULT: C.A.S.E. BOUNDARY PASS")
     return 0
